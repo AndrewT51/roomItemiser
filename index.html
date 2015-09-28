@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" ng-controller='homeCtrl'>
+		<div class="row">
+			<input type="text" placeholder='Add new room' ng-model='room'>
+			<button class='btn btn-success' ng-click='addRoom(room)'>Submit</button>
+		</div>
+			<table>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Cost</th>
+				<th>Location</th>
+				<tbody>
+					<tr>
+						<td><input type="text" ng-model='item.name'></td>
+						<td><input type="number" ng-model='item.quantity'></td>
+						<td><input type="number" ng-model='item.cost'></td>
+						<td><select ng-model='whichRoom'>
+							<option ng-repeat="a in rooms">
+							{{a}}
+							</option>
+							
+						</select></td>
+						<td><button class='btn btn-success' ng-click='collate(item)'>Add item(s)</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+				{{message}}
+			<select>
+				<option ng-repeat="a in rooms">
+							{{a}}
+							</option>
+			</select>
+			<hr>
+			<table>
+				<th>Item</th>
+				<th>Count</th>
+				<th>Cost each</th>
+				<th>Total cost</th>
+				<tr ng-repeat='i in roomObj track by $index'>
+					<td>{{item.name}}</td>
+
+					
+				</tr>
+				
+			</table>
+		
+
+
+
+
+	</div>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
